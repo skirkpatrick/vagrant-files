@@ -11,5 +11,3 @@ nvm install $NODE_VERSION
 nvm alias default $NODE_VERSION
 
 # global npm installs
-echo "Installing webpack"
-npm install -g webpack > /dev/null
