@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
   end
 
   # Network
-  config.vm.network :forwarded_port, guest: 8080, host: 8080, auto_correct: true
+  config.vm.network :forwarded_port, guest: 8080, host: 8080
 
   # Base provisioning
   config.vm.provision :shell, path: "provision/bootstrap.sh", privileged: false
