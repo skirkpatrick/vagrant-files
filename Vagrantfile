@@ -10,7 +10,13 @@ Vagrant.configure("2") do |config|
   end
 
   # Network
-  config.vm.network :forwarded_port, guest: 8080, host: 8080
+  # Default to dhcp to avoid IP conflicts
+  config.vm.network :private_network, type: "dhcp"
+  # Each project needs a unique static IP
+  #config.vm.network :private_network, ip: "192.168.80.80"
+
+  # Synced folders
+  config.vm.synced_folder ".", "/vagrant", type: "nfs"
 
   # Base provisioning
   config.vm.provision :shell, path: "provision/bootstrap.sh", privileged: false
